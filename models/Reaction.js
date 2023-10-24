@@ -1,4 +1,5 @@
 const { Schema, Types } = require('mongoose');
+const { format_date } = require('../utils/helpers');
 
 const Reaction = new Schema(
   {
@@ -14,6 +15,7 @@ const Reaction = new Schema(
     createdAt: {
       type: Date,
       default: Date.now,
+      get: format_date
     },
   },
   {
@@ -23,5 +25,5 @@ const Reaction = new Schema(
     id: false,
   }
 );
-
+// We're currently only exporting the schema, but keeping as the "Model" for consistency.
 module.exports = Reaction;
