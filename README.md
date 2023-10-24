@@ -32,7 +32,7 @@ The Pack (after a group of mongoose), is a social network api using MongoDB, Exp
 https://youtu.be/hNZ7-5cg0pI
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/shindekokoro/the-pack/main/assets/images/preview.png">
+<img src="https://raw.githubusercontent.com/shindekokoro/the-pack/main/preview.png">
 </p>
 
 ## License
