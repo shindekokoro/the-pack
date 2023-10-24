@@ -8,7 +8,7 @@ module.exports = {
 
       return users
         ? res.status(200).json(users)
-        : res.json({ message: 'No users found in the DB' });
+        : res.status(404).json({ message: 'No users found in the DB' });
     } catch (err) {
       res.status(500).json(err);
     }
@@ -48,7 +48,48 @@ module.exports = {
       }
 
       await Thought.deleteMany({ _id: { $in: user.thoughts } });
-      return res.json({ message: 'User and associated thoughts deleted!' });
+      return res
+        .status(200)
+        .json({ message: 'User and associated thoughts deleted!' });
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  },
+  // create a new friend
+  async createFriend(req, res) {
+    try {
+      const friend = await User.findOne({ _id: req.params.friendId });
+
+      if (!friend) {
+        return res
+          .status(404)
+          .json({ message: 'No user/friend found with that ID.' });
+      }
+      const user = await User.findOneAndUpdate(
+        { _id: req.params.userId },
+        { $addToSet: { friends: friend._id } }
+      );
+      return user
+        ? res.status(200).json(user)
+        : res.status(400).json({ message: 'Unable to update users friend' });
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  },
+  // Delete a friend
+  async deleteFriend(req, res) {
+    try {
+      const user = await User.findOneAndUpdate(
+        { _id: req.params.userId },
+        { $pull: { friends: req.params.friendId } }
+      );
+      return user
+        ? res
+            .status(200)
+            .json({ message: 'Friend of user deleted!' })
+        : res
+            .status(404)
+            .json({ message: 'User not found, friend not deleted.' });
     } catch (err) {
       res.status(500).json(err);
     }
