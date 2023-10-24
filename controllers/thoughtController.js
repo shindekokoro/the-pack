@@ -106,9 +106,9 @@ module.exports = {
         {
           $pull: { reactions: { reactionId: req.params.reactionId } }
         },
-        { runValidators: true, new: true }
+        { new: true }
       );
-
+      
       return thought
         ? res.status(200).json(thought)
         : res.status(404).json({ message: 'No thought with this id!' });
