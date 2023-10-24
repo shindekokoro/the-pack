@@ -1,7 +1,7 @@
 const { Schema, Types } = require('mongoose');
 const { format_date } = require('../utils/helpers');
 
-const Reaction = new Schema(
+const reactionSchema = new Schema(
   {
     reactionID: {
       type: Schema.Types.ObjectId,
@@ -11,6 +11,10 @@ const Reaction = new Schema(
       type: String,
       required: true,
       maxlength: 280,
+    },
+    username: {
+      type: String,
+      required: true
     },
     createdAt: {
       type: Date,
@@ -25,5 +29,5 @@ const Reaction = new Schema(
     id: false,
   }
 );
-// We're currently only exporting the schema, but keeping as the "Model" for consistency.
-module.exports = Reaction;
+// We're currently only exporting the schema.
+module.exports = reactionSchema;
