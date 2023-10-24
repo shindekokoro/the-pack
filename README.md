@@ -11,6 +11,7 @@ The Pack (after a group of mongoose), is a social network api using MongoDB, Exp
 - [Description](#description)
 - [Installation](#installation)
 - [Usage](#usage)
+- [Preview](#preview)
 - [License](#license)
 - [Tests](#tests)
 - [Questions](#questions)
@@ -18,6 +19,7 @@ The Pack (after a group of mongoose), is a social network api using MongoDB, Exp
 ## Installation
 
 1. Type `git clone https://github.com/shindekokoro/the-pack.git`
+2. Make any changes needed to `.env` file
 2. Run `npm i`
 
 
@@ -25,6 +27,9 @@ The Pack (after a group of mongoose), is a social network api using MongoDB, Exp
 
 1. Ensure that you have MongoDB installed.
 2. Type `npm run start` to initiate API backend.
+
+## Preview
+https://youtu.be/hNZ7-5cg0pI
 
 <p align="center">
 <img src="https://raw.githubusercontent.com/shindekokoro/the-pack/main/assets/images/preview.png">
